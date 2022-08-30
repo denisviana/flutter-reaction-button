@@ -118,7 +118,10 @@ class _ReactionsBoxItemState extends State<ReactionsBoxItem>
               animation: _scaleAnimation,
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                child: widget.reaction.previewIcon,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minWidth: 0.1, minHeight: 0.1),
+                  child: widget.reaction.previewIcon
+                ),
               ),
               builder: (_, child) {
                 return Transform.scale(
